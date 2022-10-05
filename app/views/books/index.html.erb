@@ -1,2 +1,42 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+
+<%= render partial: 'list', locals:{ book:@book, user:@user } %>
+
+</div>
+
+<div class="col-md-8 offset-md-1">
+<div class="col-lg-4">
+<h2>Books</h2>
+</div>
+<div class="container">
+  <div class="row">
+<div class="col-lg-8">
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+</table>
+  </div>
+</div>
+  </div>
+
+<% @books.each do |book| %>
+<p><%= image_tag book.user.get_profile_image(100,100) %></p>
+
+<span><%= book.title %></span>
+
+<span><%= book.body %></span>
+
+
+<% end %>
+</div>
+</div>
+</div>
