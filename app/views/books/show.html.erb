@@ -1,5 +1,33 @@
-<h1>Books#show</h1>
+<p><%= flash[:notice] %></p>
 
-<%= render partial: 'list', locals:{ book:@book, user:@user } %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
 
-<
+
+<%= render 'list', book: @book, user: @user %>
+
+</div>
+<div class="col-md-8 offset-md-1">
+    <h2>Book detail</h2>
+    <table class="table">
+        <tbody>
+            <tr>
+            <td><p><%= link_to user_path(@books.user.id) do %><%= image_tag @books.user.get_profile_image(100,100) %></p><br><span><%= @user.name %></span><% end %></td>
+            <td><%= link_to book_path do %><span><%= @books.title %></span><% end %></td>
+            <td><span><%= @books.body %></span></td>
+            <td> <% if @books.user == current_user %>
+                   <%= link_to "Edit", edit_book_path(@books), class:"btn btn-sm btn-success edit_book_38562" %>
+            </td>
+            <td>
+                   <%= link_to "Destroy",book_path, method: :delete,"data-confirm" =>"本当に削除しますか？", class:"btn btn-sm btn-danger destroy_book_38562" %>
+                 <% end %>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+        </div>
+    </div>
+</div>
