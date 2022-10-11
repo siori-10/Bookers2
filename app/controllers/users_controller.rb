@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
-   
+
 
   def index
     @user = current_user
     @book = Book.new
     @users = User.all
-    
+
   end
 
   def show
     @book =Book.new
     @user = User.find(params[:id])
     @books = @user.books
-    
+
   end
 
   def edit
@@ -20,8 +20,8 @@ class UsersController < ApplicationController
     if @user == current_user
       render"edit"
     else
-      redirect_to user_path
-    end 
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
     else
       render :edit
-    end 
+    end
   end
   # ↑pathを考える必要がある
 

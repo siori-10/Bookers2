@@ -13,7 +13,7 @@
     <table class="table">
         <tbody>
             <tr>
-            <td><p><%= link_to user_path(@books.user.id) do %><%= image_tag @books.user.get_profile_image(100,100) %></p><br><span><%= @user.name %></span><% end %></td>
+            <td><%= link_to user_path(@books.user.id) do %><p><%= image_tag @books.user.get_profile_image(100,100) %></p><br><span><%= @user.name %></span><% end %></td>
             <td><%= link_to book_path do %><span><%= @books.title %></span><% end %></td>
             <td><span><%= @books.body %></span></td>
             <td> <% if @books.user == current_user %>
